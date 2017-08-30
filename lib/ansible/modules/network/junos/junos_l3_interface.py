@@ -120,6 +120,7 @@ def main():
     """
     element_spec = dict(
         name=dict(),
+        description=dict(),
         ipv4=dict(),
         ipv6=dict(),
         unit=dict(default=0, type='int'),
@@ -163,6 +164,7 @@ def main():
     param_to_xpath_map.update([
         ('name', {'xpath': 'name', 'parent_attrib': False, 'is_key': True}),
         ('unit', {'xpath': 'name', 'top': 'unit', 'is_key': True}),
+        ('description', {'xpath': 'description', 'top': 'unit'}),
         ('vlan_id', {'xpath': 'vlan-id', 'top': 'unit'}),
         ('ipv4', {'xpath': 'inet/address/name', 'top': 'unit/family', 'is_key': True}),
         ('ipv6', {'xpath': 'inet6/address/name', 'top': 'unit/family', 'is_key': True})
