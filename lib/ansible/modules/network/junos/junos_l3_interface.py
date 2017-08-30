@@ -180,7 +180,7 @@ def main():
                 param[key] = module.params[key]
 
         item = param.copy()
-        if not item['ipv4'] and not item['ipv6']:
+        if not item['ipv4'] and not item['ipv6'] and not item['state'] == 'absent':
             module.fail_json(msg="one of the following is required: ipv4,ipv6")
 
         want = map_params_to_obj(module, param_to_xpath_map, param=item)
