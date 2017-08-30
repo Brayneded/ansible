@@ -123,6 +123,7 @@ def main():
         ipv4=dict(),
         ipv6=dict(),
         unit=dict(default=0, type='int'),
+        vlan_id=dict(type='int'),
         state=dict(default='present', choices=['present', 'absent']),
         active=dict(default=True, type='bool')
     )
@@ -161,7 +162,8 @@ def main():
     param_to_xpath_map = collections.OrderedDict()
     param_to_xpath_map.update([
         ('name', {'xpath': 'name', 'parent_attrib': False, 'is_key': True}),
-        ('unit', {'xpath': 'name', 'top': 'unit', 'parent_attrib': False, 'is_key': True}),
+        ('unit', {'xpath': 'name', 'top': 'unit', 'is_key': True}),
+        ('vlan_id', {'xpath': 'vlan-id', 'top': 'unit'}),
         ('ipv4', {'xpath': 'inet/address/name', 'top': 'unit/family', 'is_key': True}),
         ('ipv6', {'xpath': 'inet6/address/name', 'top': 'unit/family', 'is_key': True})
     ])
